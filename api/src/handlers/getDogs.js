@@ -18,3 +18,5 @@ const getDogs = async (req, res) => {
 }
 
 module.exports = getDogs;
+
+//! NO LOS GUARDA EN LA BDD

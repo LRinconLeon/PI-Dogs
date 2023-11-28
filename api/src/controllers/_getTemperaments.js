@@ -17,10 +17,10 @@ const _getTemperaments = async () => {
         //* Aqui se utiliza flatmap para crear un solo array y no usar join, se crea unknown como default
         //* y se quitan los espacios de inicio y final con trim.
         let aux = APITempData
-        .flatMap((dog) => (dog.temperament || 'unknown').split(',').map(temp => temp.trim()))
+        .flatMap((dog) => (dog.temperament || '').split(', ').map(temp => temp.trim()))
         .filter(Boolean); 
         //* Se filtra boolean porque quieres limpiar los elemento null, y null es false
-
+         
         //* Set: elimina temps duplicados y sort: ordena
         const orderTemps = [...new Set(aux)].sort();
 

@@ -20,12 +20,18 @@ const _getDogs = async () => {
 
     const dogsAPI = dataAPI.map((dog) => ({
         id: dog.id,
-        img: dog.reference_image_id,
+        image: dog.image.url,
         name: dog.name,
         height: dog.height.metric,
         weight: dog.weight.metric,
         life_span: dog.life_span,
-        Temperament: dog.temperament ? dog.temperament.split(', ').map((temp) => ({ 'name': temp })) : [],
+        created: false,
+        //temperament: dog.temperament //! CHECAR SI AFECTA QUE NO SE HAGA UN OBJETO POR CADA TEMP
+        temperament: dog.temperament?.split(', ').map((temp) => ({
+            'name': temp
+        })),
+        //temperaments: dog.temperament ? dog.temperament.split(', ').map((temp) => ({ 'name': temp })) : [],
+        //Temperaments: dog.Temperaments?.split(',').map(templete => templete.trim()).filter((item, index, self) => self.indexOf(item) === index)
     }));
 
     return [...dogsDB, ...dogsAPI];

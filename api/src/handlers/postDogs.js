@@ -1,17 +1,18 @@
 const _postDogs = require('../controllers/_postDogs');
 
 const postDogs = async (req, res) => {
-    const { img, name, heigth, weigth, life_span, Temperaments } = req.body;
+    const { image, name, height, weight, life_span, temperaments } = req.body;
 
     try {
-        if(!name || !img || !heigth || !weigth || !life_span) {
+        if( !image || !name || !height || !weight || !life_span) {
             return res.status(400).json({ error: 'Missing required fields' });
         } else {
-            const newDog = await _postDogs(name, img, heigth, weigth, life_span, Temperaments)
-            return res.status(200).json(newDog);
+            const newDog = await _postDogs(image, name, height, weight, life_span, temperaments)
+            return res.status(201).json(newDog); //201 significa Created
         }
     } catch(error) {
-        res.status(500).json({ error: error.message });
+        if(error.message === 'This Dog already exists') return res.status(409).json({ error: error.message }); 
+        else return res.status(500).json({ error: error.message });
     };
 };
 

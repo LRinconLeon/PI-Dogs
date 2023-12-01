@@ -1,0 +1,11 @@
+export const GET_DOGS = 'GET_DOGS';
+export const GET_BY_NAME = 'GET_BY_NAME';
+export const GET_BY_ID = 'GET_BY_ID';
+export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
+export const POST_DOGS = 'POST_DOGS';
+export const FILTER_BY_TEMP = 'FILTER_BY_TEMP';
+export const FILTER_BY_SOURCE = 'FILTER_BY_SOURCE';
+export const ORDER_BY_ABC = 'ORDER_BY_ABC';
+export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
+export const PAGINATION = 'PAGINATION';
+export const RESTART = 'RESTART';
